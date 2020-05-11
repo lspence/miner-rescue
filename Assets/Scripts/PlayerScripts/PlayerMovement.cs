@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform wallCheck;
 
     public LayerMask groundLayer;
 
@@ -13,13 +14,14 @@ public class PlayerMovement : MonoBehaviour
     private float jumpPower = 3.5f;
     private float flyingPower = 10;
     private bool isGrounded;
+    private bool isTouchingWall;
     private bool jumped;
     private bool flying;
+    private bool isFacingRight;
 
     private Rigidbody2D myBody;
     private Animator anim;
 
-    
 
     private void Awake()
     {
@@ -40,8 +42,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         //Debug.DrawRay(groundCheck.position, Vector2.down * 0.5f, Color.yellow); //Visually show raycast in scene view.
+        //Debug.DrawRay(wallCheck.position, Vector2.right * 0.5f, Color.yellow); //Visually show raycast in scene view.
 
         CheckOnGround();
+        CheckTouchingWall();
         Jump();
         Flying();
     }
@@ -54,11 +58,13 @@ public class PlayerMovement : MonoBehaviour
         {
             myBody.velocity = new Vector2(speed, myBody.velocity.y);
             FlipDirection(direction);
+            isFacingRight = true;
         }
         else if (hAxis < 0)
         {
             myBody.velocity = new Vector2(-speed, myBody.velocity.y);
             FlipDirection(-direction);
+            isFacingRight = false;
         }
         else
         {
@@ -77,8 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckOnGround()
     {
-        //isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f, groundLayer);
-        isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f);
+        isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f, groundLayer);
 
         if (isGrounded && jumped)
         {
@@ -92,11 +97,17 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Flying", false);
         }
     }
+
+    private void CheckTouchingWall()
+    {
+        isTouchingWall = isFacingRight == true ? Physics2D.Raycast(wallCheck.position, Vector2.right, 0.5f, groundLayer) : Physics2D.Raycast(wallCheck.position, Vector2.left, 0.5f, groundLayer);
+    }
     
     private void Jump()
     {
-        if (isGrounded)
+        if (isGrounded && !isTouchingWall)
         {
+            Debug.Log("On ground: " + isGrounded);
             if (Input.GetKey(KeyCode.Space))
             {
                 jumped = true;
