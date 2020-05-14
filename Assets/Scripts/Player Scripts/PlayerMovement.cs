@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private int direction = 1;
     private float speed = 5f;
     private float jumpPower = 3.5f;
-    private float flyingPower = 10;
+    private float flyingPower = 12;
     private bool isGrounded;
     private bool isTouchingWall;
     private bool jumped;
@@ -107,7 +107,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded && !isTouchingWall)
         {
-            Debug.Log("On ground: " + isGrounded);
             if (Input.GetKey(KeyCode.Space))
             {
                 jumped = true;
@@ -119,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flying()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.H)) // Hovering
         {
             flying = true;
             myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
