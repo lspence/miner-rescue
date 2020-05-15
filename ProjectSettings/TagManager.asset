@@ -8,6 +8,7 @@ TagManager:
   - Bat
   - Rat
   - Snake
+  - Spider
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1261585877
+    locked: 0
+  - name: Environment
+    uniqueID: 2656381445
     locked: 0
   - name: Enemy
     uniqueID: 2332293247

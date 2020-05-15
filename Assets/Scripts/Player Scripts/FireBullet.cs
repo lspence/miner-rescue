@@ -14,7 +14,7 @@ public class FireBullet : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(DisableBullet(5f));
+        StartCoroutine(DisableBullet(1f));
     }
 
     
@@ -38,7 +38,7 @@ public class FireBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.gameObject.tag == Tags.BAT)
+        if (target.gameObject.tag == Tags.BAT || target.gameObject.tag == Tags.RAT || target.gameObject.tag == Tags.SNAKE || target.gameObject.tag == Tags.SPIDER)
         {
             anim.Play("Fire");
             StartCoroutine(DisableBullet(0.1f));
