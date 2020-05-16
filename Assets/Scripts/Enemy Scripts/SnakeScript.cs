@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class SnakeScript : MonoBehaviour
 {
+    [SerializeField] private GameObject snakeVenom;
+
     private float moveSpeed = 1.2f;
     private float direction = 1.0f;
 
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
     private Vector3 movePosition;
+
+    public LayerMask playerLayer;
     private void Start()
     {
         originPosition = transform.position;
@@ -23,6 +27,7 @@ public class SnakeScript : MonoBehaviour
     private void Update()
     {
         MoveSnake();
+        SpitVenom();
     }
 
     private void OnTriggerEnter2D(Collider2D target)
@@ -56,9 +61,32 @@ public class SnakeScript : MonoBehaviour
         transform.localScale = tempScale;
     }
 
+    private void SpitVenom()
+    {
+        if (Physics2D.Raycast(transform.position, moveDirection == Vector3.left ? Vector2.left : Vector2.right, 2f, playerLayer))
+        {
+            StartCoroutine(Spit());
+        }
+    }
+
     IEnumerator Killed(float timer)
     {
         yield return new WaitForSeconds(timer);
         Destroy(gameObject);
+    }
+
+    IEnumerator Spit()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameObject venom = Instantiate(snakeVenom, new Vector3(moveDirection == Vector3.left ? transform.position.x - 0.3f : transform.position.x + 0.45f, transform.position.y + 0.2f, transform.position.z), Quaternion.identity);
+        venom.GetComponent<SpitVenomScript>().Speed *= transform.localScale.x;
+
+        StartCoroutine(DisableVenom(2f, venom));
+    }
+
+    IEnumerator DisableVenom(float timer, GameObject venomSpit)
+    {
+        yield return new WaitForSeconds(timer);
+        Destroy(venomSpit);
     }
 }
