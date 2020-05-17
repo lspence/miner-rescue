@@ -8,6 +8,7 @@ public class SnakeScript : MonoBehaviour
 
     private float moveSpeed = 1.2f;
     private float direction = 1.0f;
+    private float timer;
 
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
@@ -21,11 +22,13 @@ public class SnakeScript : MonoBehaviour
 
         movePosition = transform.position;
         movePosition.x -= 2.5f;
+
+        timer = 0;
     }
 
     
     private void Update()
-    {
+    {        
         MoveSnake();
         SpitVenom();
     }
@@ -63,9 +66,18 @@ public class SnakeScript : MonoBehaviour
 
     private void SpitVenom()
     {
-        if (Physics2D.Raycast(transform.position, moveDirection == Vector3.left ? Vector2.left : Vector2.right, 2f, playerLayer))
+        timer += Time.deltaTime;
+
+        if (Physics2D.Raycast(transform.position, moveDirection == Vector3.left ? Vector2.left : Vector2.right, Mathf.Infinity, playerLayer))
         {
-            StartCoroutine(Spit());
+            if (timer > 1f)
+            {
+                GameObject venom = Instantiate(snakeVenom, new Vector3(moveDirection == Vector3.left ? transform.position.x - 0.3f : transform.position.x + 0.45f, transform.position.y + 0.2f, transform.position.z), Quaternion.identity);
+                venom.GetComponent<SpitVenomScript>().Speed *= transform.localScale.x;
+
+                StartCoroutine(DisableVenom(2f, venom));
+                timer = 0;
+            }
         }
     }
 
@@ -73,15 +85,6 @@ public class SnakeScript : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         Destroy(gameObject);
-    }
-
-    IEnumerator Spit()
-    {
-        yield return new WaitForSeconds(1.5f);
-        GameObject venom = Instantiate(snakeVenom, new Vector3(moveDirection == Vector3.left ? transform.position.x - 0.3f : transform.position.x + 0.45f, transform.position.y + 0.2f, transform.position.z), Quaternion.identity);
-        venom.GetComponent<SpitVenomScript>().Speed *= transform.localScale.x;
-
-        StartCoroutine(DisableVenom(2f, venom));
     }
 
     IEnumerator DisableVenom(float timer, GameObject venomSpit)
