@@ -6,6 +6,7 @@ public class SnakeScript : MonoBehaviour
 {
     [SerializeField] private GameObject snakeVenom;
 
+    private int score;
     private float moveSpeed = 1.2f;
     private float direction = 1.0f;
     private float timer;
@@ -37,9 +38,17 @@ public class SnakeScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
+            score = 10;
+            GameManger.instance.IncreaseScore(score);
             StartCoroutine(Killed(0.2f));
         }
+
+        if (target.tag == Tags.PLAYER)
+        {
+            GameManger.instance.LooseLife();
+        }
     }
+ 
 
     private void MoveSnake()
     {

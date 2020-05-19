@@ -16,6 +16,14 @@ public class SpitVenomScript : MonoBehaviour
         Move();
     }
 
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == Tags.PLAYER)
+        {
+            GameManger.instance.LooseLife();
+        }
+    }
+
     private void Move()
     {
         Vector3 temp = transform.position;

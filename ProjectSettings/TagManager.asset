@@ -9,6 +9,7 @@ TagManager:
   - Rat
   - Snake
   - Spider
+  - Venom
   layers:
   - Default
   - TransparentFX

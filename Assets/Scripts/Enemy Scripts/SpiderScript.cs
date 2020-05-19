@@ -6,6 +6,8 @@ public class SpiderScript : MonoBehaviour
 {
     private string movementCoroutine = "ChangeMovementDirection";
 
+    private int score;
+
     private Rigidbody2D myBody;
 
     private Vector3 moveDirection = Vector3.down;
@@ -56,9 +58,16 @@ public class SpiderScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
+            score = 5;
+            GameManger.instance.IncreaseScore(score);
             myBody.bodyType = RigidbodyType2D.Dynamic;
             StartCoroutine(SpiderDeath());
             StopCoroutine(movementCoroutine);
+        }
+
+        if (target.tag == Tags.PLAYER)
+        {
+            GameManger.instance.LooseLife();
         }
     }
 }

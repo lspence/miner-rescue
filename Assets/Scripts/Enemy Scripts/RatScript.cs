@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RatScript : MonoBehaviour
 {
+    private int score;
     private float moveSpeed = 2.5f;
     private float direction = 1.0f;
 
@@ -30,7 +31,14 @@ public class RatScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
+            score = 1;
+            GameManger.instance.IncreaseScore(score);
             StartCoroutine(Killed(0.2f));
+        }
+
+        if (target.tag == Tags.PLAYER)
+        {
+            GameManger.instance.LooseLife();
         }
     }
 

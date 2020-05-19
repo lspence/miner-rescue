@@ -31,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -130,7 +130,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a818a746c1878ee44a6ec8c3359b91fa
+    spriteID: 56d645830f0ddde46a8e614999cabaea
     vertices: []
     indices: 
     edges: []

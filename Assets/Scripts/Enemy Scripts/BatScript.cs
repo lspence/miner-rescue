@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BatScript : MonoBehaviour
 {
@@ -12,14 +11,10 @@ public class BatScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
     private Vector3 movePosition;
-    private Text scoreTextScore;
 
-    //private PlayerHealth playerHealth;
 
     private void Start()
     {
-        scoreTextScore = GameObject.Find("Score").GetComponent<Text>();
-
         originPosition = transform.position;
         originPosition.x += 2f;
 
@@ -46,8 +41,6 @@ public class BatScript : MonoBehaviour
         {
             GameManger.instance.LooseLife();
         }
-
-        
     }
 
     private void MoveBat()
