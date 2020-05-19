@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BatScript : MonoBehaviour
 {
+    private int score;
     private float moveSpeed = 2f;
     private float direction = 1.0f;
 
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
     private Vector3 movePosition;
+    private Text scoreTextScore;
+
+    //private PlayerHealth playerHealth;
 
     private void Start()
     {
+        scoreTextScore = GameObject.Find("Score").GetComponent<Text>();
+
         originPosition = transform.position;
         originPosition.x += 2f;
 
@@ -30,8 +37,17 @@ public class BatScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
+            score = 2;
+            GameManger.instance.IncreaseScore(score);
             StartCoroutine(Killed(0.2f));
         }
+
+        if (target.tag == Tags.PLAYER)
+        {
+            GameManger.instance.LooseLife();
+        }
+
+        
     }
 
     private void MoveBat()
