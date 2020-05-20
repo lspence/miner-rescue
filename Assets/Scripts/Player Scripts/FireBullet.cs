@@ -6,6 +6,9 @@ public class FireBullet : MonoBehaviour
 {
     public float Speed { get; set; } = 10f;
 
+    private float bulletRemoveDelay = 1f;
+    private float bulletDisableDelay = 0.1f;
+
     private Animator anim;
 
     private void Awake()
@@ -14,7 +17,7 @@ public class FireBullet : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(DisableBullet(1f));
+        StartCoroutine(DisableBullet(bulletRemoveDelay));
     }
 
     
@@ -41,7 +44,7 @@ public class FireBullet : MonoBehaviour
         if (target.gameObject.tag == Tags.BAT || target.gameObject.tag == Tags.RAT || target.gameObject.tag == Tags.SNAKE || target.gameObject.tag == Tags.SPIDER)
         {
             anim.Play("Fire");
-            StartCoroutine(DisableBullet(0.1f));
+            StartCoroutine(DisableBullet(bulletDisableDelay));
         }
     }
 }

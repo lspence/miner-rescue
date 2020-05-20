@@ -6,6 +6,8 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject fireBullet;
 
+    private float bulletYOffset = 0.2f;
+
     private Animator anim;
 
     private void Awake()
@@ -27,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            GameObject bullet = Instantiate(fireBullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+            GameObject bullet = Instantiate(fireBullet, new Vector3(transform.position.x, transform.position.y - bulletYOffset, transform.position.z), Quaternion.identity);
             bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
             anim.SetBool("Shooting", true);
         }

@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManger : MonoBehaviour
 {
-    public static GameManger instance;
+    public static GameManger instance = null;
 
     private int score;
     private int lives = 3;
+    private float playDeathDelay = 0.8f;
+    private float respawnDelay = 2f;
+    private float levelLoadDelay = 3f;
 
     private Text lifeText;
-    private Text scoreText; 
+    private Text scoreText;
     private Text timeText;
     private GameObject player;
     private Vector3 startingPosition;
@@ -35,8 +39,8 @@ public class GameManger : MonoBehaviour
         startingPosition = player.GetComponent<Transform>().position;
         isPlayerAlive = true;
         lifeText.text = lives.ToString();
+        scoreText.text = score.ToString();
     }
-
     
     private void Update()
     {
@@ -49,10 +53,12 @@ public class GameManger : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != null)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void IncreaseScore(int scoreAmount)
@@ -72,13 +78,18 @@ public class GameManger : MonoBehaviour
 
         player.GetComponent<Animator>().Play("Death");
         lifeText.text = lives.ToString();
-        StartCoroutine(PlayerDied(0.8f));
+        StartCoroutine(PlayerDied(playDeathDelay));
         StartCoroutine(Respawn());
 
         if (lives == 0)
         {
             Debug.Log("Game Over");
         }
+    }
+
+    public void LoadNextLevel(int level)
+    {
+        StartCoroutine(LoadLevel(level));
     }
 
     private void RemainingTime()
@@ -100,8 +111,15 @@ public class GameManger : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(respawnDelay);
         player.transform.position = startingPosition;
         player.SetActive(true);
+    }
+
+    IEnumerator LoadLevel(int level)
+    {
+        yield return new WaitForSecondsRealtime(levelLoadDelay);
+        timerTime = 99f;
+        SceneManager.LoadScene(level);
     }
 }

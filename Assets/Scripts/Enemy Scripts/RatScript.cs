@@ -5,8 +5,11 @@ using UnityEngine;
 public class RatScript : MonoBehaviour
 {
     private int score;
+    private int ratPoints = 1;
     private float moveSpeed = 2.5f;
     private float direction = 1.0f;
+    private float ratPositionOffset = 5f;
+    private float ratDeathDelay = 0.2f;
 
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
@@ -15,10 +18,10 @@ public class RatScript : MonoBehaviour
     private void Start()
     {
         originPosition = transform.position;
-        originPosition.x += 5f;
+        originPosition.x += ratPositionOffset;
 
         movePosition = transform.position;
-        movePosition.x -= 5f;
+        movePosition.x -= ratPositionOffset;
     }
 
     
@@ -31,9 +34,9 @@ public class RatScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
-            score = 1;
+            score = ratPoints;
             GameManger.instance.IncreaseScore(score);
-            StartCoroutine(Killed(0.2f));
+            StartCoroutine(Killed(ratDeathDelay));
         }
 
         if (target.tag == Tags.PLAYER)

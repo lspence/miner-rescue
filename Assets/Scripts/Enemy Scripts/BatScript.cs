@@ -5,8 +5,11 @@ using UnityEngine;
 public class BatScript : MonoBehaviour
 {
     private int score;
+    private int batPoints = 2;
     private float moveSpeed = 2f;
     private float direction = 1.0f;
+    private float batPositionOffset = 2f;
+    private float batDeathDelay = 0.2f;
 
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
@@ -16,10 +19,10 @@ public class BatScript : MonoBehaviour
     private void Start()
     {
         originPosition = transform.position;
-        originPosition.x += 2f;
+        originPosition.x += batPositionOffset;
 
         movePosition = transform.position;
-        movePosition.x -= 2f;
+        movePosition.x -= batPositionOffset;
     }
 
     
@@ -32,9 +35,9 @@ public class BatScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
-            score = 2;
+            score = batPoints;
             GameManger.instance.IncreaseScore(score);
-            StartCoroutine(Killed(0.2f));
+            StartCoroutine(Killed(batDeathDelay));
         }
 
         if (target.tag == Tags.PLAYER)

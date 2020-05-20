@@ -7,6 +7,10 @@ public class SpiderScript : MonoBehaviour
     private string movementCoroutine = "ChangeMovementDirection";
 
     private int score;
+    private int spiderPoints = 5;
+    private float minDistance = 0.09f;
+    private float maxDistance = 0.145f;
+    private float spiderDeathDelay = 0.5f;
 
     private Rigidbody2D myBody;
 
@@ -34,7 +38,7 @@ public class SpiderScript : MonoBehaviour
 
     IEnumerator ChangeMovementDirection()
     {
-        yield return new WaitForSeconds(Random.Range(0.09f, 0.145f));
+        yield return new WaitForSeconds(Random.Range(minDistance, maxDistance));
 
         if (moveDirection == Vector3.down)
         {
@@ -50,7 +54,7 @@ public class SpiderScript : MonoBehaviour
 
     IEnumerator SpiderDeath()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(spiderDeathDelay);
         Destroy(gameObject);
     }
 
@@ -58,7 +62,7 @@ public class SpiderScript : MonoBehaviour
     {
         if (target.tag == Tags.BULLET)
         {
-            score = 5;
+            score = spiderPoints;
             GameManger.instance.IncreaseScore(score);
             myBody.bodyType = RigidbodyType2D.Dynamic;
             StartCoroutine(SpiderDeath());

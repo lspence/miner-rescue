@@ -5,9 +5,11 @@ using UnityEngine;
 public class SpitVenomScript : MonoBehaviour
 {
     public float Speed { get; set; } = 2.5f;
+
+    private float venomClearDelay = 2f;
     private void Start()
     {
-        StartCoroutine(DisableVenom(2f));
+        StartCoroutine(DisableVenom(venomClearDelay));
     }
 
     

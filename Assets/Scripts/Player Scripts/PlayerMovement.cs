@@ -12,7 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private int direction = 1;
     private float speed = 5f;
     private float jumpPower = 3.5f;
-    private float flyingPower = 12;
+    private float flyingPower = 12f;
+    private float groundCheckDistance = 0.1f;
+    private float wallCheckDistance = 0.5f;
     private bool isGrounded;
     private bool isTouchingWall;
     private bool jumped;
@@ -41,9 +43,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //Debug.DrawRay(groundCheck.position, Vector2.down * 0.5f, Color.yellow); //Visually show raycast in scene view.
-        //Debug.DrawRay(wallCheck.position, Vector2.right * 0.5f, Color.yellow); //Visually show raycast in scene view.
-
         CheckOnGround();
         CheckTouchingWall();
         Jump();
@@ -83,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckOnGround()
     {
-        isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f, groundLayer);
+        isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayer);
 
         if (isGrounded && jumped)
         {
@@ -100,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckTouchingWall()
     {
-        isTouchingWall = isFacingRight == true ? Physics2D.Raycast(wallCheck.position, Vector2.right, 0.5f, groundLayer) : Physics2D.Raycast(wallCheck.position, Vector2.left, 0.5f, groundLayer);
+        isTouchingWall = isFacingRight == true ? Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance, groundLayer) : Physics2D.Raycast(wallCheck.position, Vector2.left, wallCheckDistance, groundLayer);
     }
     
     private void Jump()
