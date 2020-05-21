@@ -5,6 +5,8 @@ using UnityEngine;
 public class SnakeScript : MonoBehaviour
 {
     [SerializeField] private GameObject snakeVenom;
+    [SerializeField] private AudioClip enemyKilledSFX;
+    [SerializeField] private AudioClip venomSpitSFX;
 
     private int score;
     private int snakePoints = 10;
@@ -21,8 +23,14 @@ public class SnakeScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
     private Vector3 movePosition;
+    private AudioSource audio;
 
     public LayerMask playerLayer;
+
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     private void Start()
     {
         originPosition = transform.position;
@@ -47,6 +55,7 @@ public class SnakeScript : MonoBehaviour
         {
             score = snakePoints;
             GameManger.instance.IncreaseScore(score);
+            audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(snakeDeathDelay));
         }
 
@@ -90,6 +99,7 @@ public class SnakeScript : MonoBehaviour
             {
                 GameObject venom = Instantiate(snakeVenom, new Vector3(moveDirection == Vector3.left ? transform.position.x - snakeLeftOffset : transform.position.x + snakeRightOffset, transform.position.y + snakeHeightOffset, transform.position.z), Quaternion.identity);
                 venom.GetComponent<SpitVenomScript>().Speed *= transform.localScale.x;
+                audio.PlayOneShot(venomSpitSFX, 0.6f);
 
                 StartCoroutine(DisableVenom(venomDelay, venom));
                 timer = 0;

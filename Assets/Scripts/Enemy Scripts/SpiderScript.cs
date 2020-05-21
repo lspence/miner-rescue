@@ -6,6 +6,8 @@ public class SpiderScript : MonoBehaviour
 {
     private string movementCoroutine = "ChangeMovementDirection";
 
+    [SerializeField] private AudioClip enemyKilledSFX;
+
     private int score;
     private int spiderPoints = 5;
     private float minDistance = 0.09f;
@@ -16,9 +18,12 @@ public class SpiderScript : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.down;
 
+    private AudioSource audio;
+
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+        audio = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -64,6 +69,7 @@ public class SpiderScript : MonoBehaviour
         {
             score = spiderPoints;
             GameManger.instance.IncreaseScore(score);
+            audio.PlayOneShot(enemyKilledSFX, 0.6f);
             myBody.bodyType = RigidbodyType2D.Dynamic;
             StartCoroutine(SpiderDeath());
             StopCoroutine(movementCoroutine);

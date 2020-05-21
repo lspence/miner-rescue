@@ -6,13 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
+    [SerializeField] private AudioClip hoverSFX;
+    [SerializeField] private AudioClip shootSFX;
+    [SerializeField] private AudioClip jumpSFX;
 
     public LayerMask groundLayer;
 
     private int direction = 1;
     private float speed = 5f;
     private float jumpPower = 3.5f;
-    private float flyingPower = 12f;
+    private float flyingPower = 20f;
     private float groundCheckDistance = 0.1f;
     private float wallCheckDistance = 0.5f;
     private bool isGrounded;
@@ -23,16 +26,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D myBody;
     private Animator anim;
-
+    private AudioSource audio;
 
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-    }
-    private void Start()
-    {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
                 jumped = true;
                 myBody.velocity = new Vector2(myBody.velocity.x, jumpPower);
                 anim.SetBool("Jump", true);
+                audio.PlayOneShot(jumpSFX, 0.6f);
             }
         }
     }
@@ -122,6 +123,24 @@ public class PlayerMovement : MonoBehaviour
             flying = true;
             myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
             anim.SetBool("Flying", true);
+
+            //if (!audio.isPlaying)
+            //{
+            //    audio.clip = hoverSFX;
+            //    audio.Play();
+            //}
+            //else
+            //{
+            //    audio.Stop();
+            //}
+        }
+
+        if (Input.GetKey(KeyCode.H) && Input.GetKeyDown(KeyCode.F)) // Hovering
+        {
+            flying = true;
+            myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
+            anim.SetBool("Flying", true);
+            audio.PlayOneShot(shootSFX, 0.6f);
         }
     }
 }

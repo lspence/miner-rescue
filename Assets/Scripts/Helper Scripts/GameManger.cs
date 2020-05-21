@@ -8,6 +8,8 @@ public class GameManger : MonoBehaviour
 {
     public static GameManger instance = null;
 
+    [SerializeField] private AudioClip playerDeathSFX;
+
     private int score;
     private int lives = 3;
     private float timerTime = 99f;
@@ -21,6 +23,7 @@ public class GameManger : MonoBehaviour
     private Text timeText;
     private GameObject player;
     private Vector3 startingPosition;
+    private AudioSource audio;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class GameManger : MonoBehaviour
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         timeText = GameObject.Find("Time").GetComponent<Text>();
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        audio = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -72,6 +76,7 @@ public class GameManger : MonoBehaviour
             lives = 0;
         }
 
+        audio.PlayOneShot(playerDeathSFX, 0.6f);
         player.GetComponent<Animator>().Play("Death");
         lifeText.text = lives.ToString();
         StartCoroutine(PlayerDied(playDeathDelay));

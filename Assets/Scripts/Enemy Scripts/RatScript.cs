@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RatScript : MonoBehaviour
 {
+    [SerializeField] private AudioClip enemyKilledSFX;
+
     private int score;
     private int ratPoints = 1;
     private float moveSpeed = 2.5f;
@@ -14,6 +16,12 @@ public class RatScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.right;
     private Vector3 originPosition;
     private Vector3 movePosition;
+    private AudioSource audio;
+
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -36,6 +44,7 @@ public class RatScript : MonoBehaviour
         {
             score = ratPoints;
             GameManger.instance.IncreaseScore(score);
+            audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(ratDeathDelay));
         }
 
