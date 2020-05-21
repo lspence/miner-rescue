@@ -10,20 +10,17 @@ public class GameManger : MonoBehaviour
 
     private int score;
     private int lives = 3;
+    private float timerTime = 99f;
     private float playDeathDelay = 0.8f;
     private float respawnDelay = 2f;
     private float levelLoadDelay = 3f;
+    private float gameoverLoadDelay = 1f;
 
     private Text lifeText;
     private Text scoreText;
     private Text timeText;
     private GameObject player;
     private Vector3 startingPosition;
-
-    [HideInInspector]
-    public bool isPlayerAlive;
-
-    public float timerTime = 99f;
 
     private void Awake()
     {
@@ -37,7 +34,6 @@ public class GameManger : MonoBehaviour
     private void Start()
     {
         startingPosition = player.GetComponent<Transform>().position;
-        isPlayerAlive = true;
         lifeText.text = lives.ToString();
         scoreText.text = score.ToString();
     }
@@ -83,7 +79,7 @@ public class GameManger : MonoBehaviour
 
         if (lives == 0)
         {
-            Debug.Log("Game Over");
+            StartCoroutine(LoadGameOver());
         }
     }
 
@@ -99,9 +95,10 @@ public class GameManger : MonoBehaviour
 
         if (timerTime <= 1)
         {
-            Debug.Log("Game Over");
+            StartCoroutine(LoadGameOver());
         }
     }
+
 
     IEnumerator PlayerDied(float timer)
     {
@@ -121,5 +118,12 @@ public class GameManger : MonoBehaviour
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         timerTime = 99f;
         SceneManager.LoadScene(level);
+    }
+
+    IEnumerator LoadGameOver()
+    {
+        yield return new WaitForSecondsRealtime(gameoverLoadDelay);
+        timerTime = 99f;
+        SceneManager.LoadScene("GameOver");
     }
 }
