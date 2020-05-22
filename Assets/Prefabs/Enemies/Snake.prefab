@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakeVenom: {fileID: 7444833826119363925, guid: 745932e9ab26f8942961d39941ce474f,
     type: 3}
-  enemyKilledSFX: {fileID: 8300000, guid: d2b7d16bebb21264cbfffe86db08547c, type: 3}
+  enemyKilledSFX: {fileID: 8300000, guid: 4ff99f9c69a943f42aa59c055fdb03ea, type: 3}
   venomSpitSFX: {fileID: 8300000, guid: afa82a11470a4ac45a16ca3ed65925d5, type: 3}
   playerLayer:
     serializedVersion: 2

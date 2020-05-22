@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203886954f05c534380eab09c75dcbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyKilledSFX: {fileID: 8300000, guid: d2b7d16bebb21264cbfffe86db08547c, type: 3}
+  enemyKilledSFX: {fileID: 8300000, guid: 1f12f014d8dd67b4381e065d2a07c87d, type: 3}
 --- !u!82 &4916623839546962548
 AudioSource:
   m_ObjectHideFlags: 0
