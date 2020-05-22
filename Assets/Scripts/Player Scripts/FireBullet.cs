@@ -6,7 +6,7 @@ public class FireBullet : MonoBehaviour
 {
     public float Speed { get; set; } = 10f;
 
-    private float bulletRemoveDelay = 1f;
+    private float bulletRemoveDelay = 0.5f;
     private float bulletDisableDelay = 0.1f;
 
     private Animator anim;
