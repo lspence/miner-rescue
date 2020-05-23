@@ -43,7 +43,7 @@ public class RatScript : MonoBehaviour
         if (target.tag == Tags.BULLET)
         {
             score = ratPoints;
-            GameManger.instance.IncreaseScore(score);
+            ScoreManager.instance.IncreaseScore(score);
             audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(ratDeathDelay));
         }

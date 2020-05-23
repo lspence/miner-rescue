@@ -9,6 +9,8 @@ public class LifeManager : MonoBehaviour
 
     private int lives = 3;
 
+    public static bool isReplay = false;
+
     private Text livesText;
     private void Awake()
     {
@@ -21,24 +23,22 @@ public class LifeManager : MonoBehaviour
         livesText.text = lives.ToString();
     }
 
-
-    private void Update()
-    {
-
-    }
-
     private void MakeInstance()
     {
         if (instance == null)
         {
             instance = this;
+            isReplay = false;
         }
         else if (instance != this)
         {
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        if (!isReplay)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void UpdateLives()

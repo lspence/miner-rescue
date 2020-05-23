@@ -11,10 +11,10 @@ public class GameManger : MonoBehaviour
     [SerializeField] private AudioClip playerDeathSFX;
 
     private int score;
-    private int lives;
+    private int lives = 3;
     private float timerTime;
     private float levelLoadDelay = 3f;
-    private float gameoverLoadDelay = 1f;
+    private float gameoverLoadDelay = 0.1f;
 
     private Text lifeText;
     private Text levelText;
@@ -35,7 +35,7 @@ public class GameManger : MonoBehaviour
         lifeText.text = lives.ToString();
         int level = SceneManager.GetActiveScene().buildIndex + 1;
         levelText.text = level.ToString();
-        timerTime = 99f;
+        timerTime = 100f;
         scoreText.text = score.ToString();
     }
     
@@ -56,12 +56,6 @@ public class GameManger : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    public void IncreaseScore(int scoreAmount)
-    {
-        score += scoreAmount;
-        scoreText.text = score.ToString();
     }
 
    
@@ -99,6 +93,7 @@ public class GameManger : MonoBehaviour
     {
         timerTime = 100f;
         yield return new WaitForSecondsRealtime(gameoverLoadDelay);
+        Time.timeScale = 0f;
         SceneManager.LoadScene("GameOver");
     }
 }

@@ -44,7 +44,7 @@ public class BatScript : MonoBehaviour
         if (target.tag == Tags.BULLET)
         {
             score = batPoints;
-            GameManger.instance.IncreaseScore(score);
+            ScoreManager.instance.IncreaseScore(score);
             audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(batDeathDelay));
         }

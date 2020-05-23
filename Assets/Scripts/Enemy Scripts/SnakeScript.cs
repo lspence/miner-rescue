@@ -55,7 +55,7 @@ public class SnakeScript : MonoBehaviour
         if (target.tag == Tags.BULLET)
         {
             score = snakePoints;
-            GameManger.instance.IncreaseScore(score);
+            ScoreManager.instance.IncreaseScore(score);
             audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(snakeDeathDelay));
         }

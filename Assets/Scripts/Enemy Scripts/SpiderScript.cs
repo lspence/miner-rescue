@@ -68,7 +68,7 @@ public class SpiderScript : MonoBehaviour
         if (target.tag == Tags.BULLET)
         {
             score = spiderPoints;
-            GameManger.instance.IncreaseScore(score);
+            ScoreManager.instance.IncreaseScore(score);
             audio.PlayOneShot(enemyKilledSFX, 0.6f);
             myBody.bodyType = RigidbodyType2D.Dynamic;
             StartCoroutine(SpiderDeath());

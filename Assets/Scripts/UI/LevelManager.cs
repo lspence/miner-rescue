@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instance = null;
-
     private Text levelText;
 
     private void Awake()
