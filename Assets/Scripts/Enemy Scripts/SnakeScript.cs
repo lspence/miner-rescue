@@ -18,6 +18,7 @@ public class SnakeScript : MonoBehaviour
     private float snakeLeftOffset = 0.3f;
     private float snakeRightOffset = 0.45f;
     private float snakeHeightOffset = 0.2f;
+    private float playerDetectionDistance = 5f;
     private float venomDelay = 2f;
 
     private Vector3 moveDirection = Vector3.right;
@@ -58,11 +59,6 @@ public class SnakeScript : MonoBehaviour
             audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(snakeDeathDelay));
         }
-
-        if (target.tag == Tags.PLAYER)
-        {
-            GameManger.instance.LooseLife();
-        }
     }
  
 
@@ -93,7 +89,7 @@ public class SnakeScript : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Physics2D.Raycast(transform.position, moveDirection == Vector3.left ? Vector2.left : Vector2.right, Mathf.Infinity, playerLayer))
+        if (Physics2D.Raycast(transform.position, moveDirection == Vector3.left ? Vector2.left : Vector2.right, playerDetectionDistance, playerLayer))
         {
             if (timer > 1f)
             {

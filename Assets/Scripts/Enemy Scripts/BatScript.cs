@@ -48,11 +48,6 @@ public class BatScript : MonoBehaviour
             audio.PlayOneShot(enemyKilledSFX, 0.6f);
             StartCoroutine(Killed(batDeathDelay));
         }
-
-        if (target.tag == Tags.PLAYER)
-        {
-            GameManger.instance.LooseLife();
-        }
     }
 
     private void MoveBat()

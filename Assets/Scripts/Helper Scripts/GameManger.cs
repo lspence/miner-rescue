@@ -11,34 +11,31 @@ public class GameManger : MonoBehaviour
     [SerializeField] private AudioClip playerDeathSFX;
 
     private int score;
-    private int lives = 3;
-    private float timerTime = 99f;
-    private float playDeathDelay = 0.8f;
-    private float respawnDelay = 2f;
+    private int lives;
+    private float timerTime;
     private float levelLoadDelay = 3f;
     private float gameoverLoadDelay = 1f;
 
     private Text lifeText;
+    private Text levelText;
     private Text scoreText;
     private Text timeText;
-    private GameObject player;
-    private Vector3 startingPosition;
-    private AudioSource audio;
 
     private void Awake()
     {
         MakeInstance();
 
         lifeText = GameObject.Find("Lives").GetComponent<Text>();
+        levelText = GameObject.Find("Level").GetComponent<Text>();
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         timeText = GameObject.Find("Time").GetComponent<Text>();
-        player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
-        audio = GetComponent<AudioSource>();
     }
     private void Start()
     {
-        startingPosition = player.GetComponent<Transform>().position;
         lifeText.text = lives.ToString();
+        int level = SceneManager.GetActiveScene().buildIndex + 1;
+        levelText.text = level.ToString();
+        timerTime = 99f;
         scoreText.text = score.ToString();
     }
     
@@ -67,27 +64,7 @@ public class GameManger : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void LooseLife()
-    {
-        lives--;
-
-        if (lives < 0)
-        {
-            lives = 0;
-        }
-
-        audio.PlayOneShot(playerDeathSFX, 0.6f);
-        player.GetComponent<Animator>().Play("Death");
-        lifeText.text = lives.ToString();
-        StartCoroutine(PlayerDied(playDeathDelay));
-        StartCoroutine(Respawn());
-
-        if (lives == 0)
-        {
-            StartCoroutine(LoadGameOver());
-        }
-    }
-
+   
     public void LoadNextLevel(int level)
     {
         StartCoroutine(LoadLevel(level));
@@ -100,35 +77,28 @@ public class GameManger : MonoBehaviour
 
         if (timerTime <= 1)
         {
-            StartCoroutine(LoadGameOver());
+            StartCoroutine(LoadDelay());
         }
     }
+    
 
-
-    IEnumerator PlayerDied(float timer)
-    {
-        yield return new WaitForSeconds(timer);
-        player.SetActive(false);
-    }
-
-    IEnumerator Respawn()
-    {
-        yield return new WaitForSeconds(respawnDelay);
-        player.transform.position = startingPosition;
-        player.SetActive(true);
-    }
-
-    IEnumerator LoadLevel(int level)
+    IEnumerator LoadLevel(int nextLevel)
     {
         yield return new WaitForSecondsRealtime(levelLoadDelay);
-        timerTime = 99f;
-        SceneManager.LoadScene(level);
+        timerTime = 100f;
+        SceneManager.LoadScene(nextLevel);
     }
 
-    IEnumerator LoadGameOver()
+    public void LoadGameOver()
     {
+        
+        StartCoroutine(LoadDelay());
+    }
+
+    IEnumerator LoadDelay()
+    {
+        timerTime = 100f;
         yield return new WaitForSecondsRealtime(gameoverLoadDelay);
-        timerTime = 99f;
         SceneManager.LoadScene("GameOver");
     }
 }

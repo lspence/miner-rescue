@@ -74,10 +74,5 @@ public class SpiderScript : MonoBehaviour
             StartCoroutine(SpiderDeath());
             StopCoroutine(movementCoroutine);
         }
-
-        if (target.tag == Tags.PLAYER)
-        {
-            GameManger.instance.LooseLife();
-        }
     }
 }

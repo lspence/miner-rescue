@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private int direction = 1;
     private float speed = 5f;
     private float jumpPower = 3.5f;
-    private float flyingPower = 20f;
+    private float flyingPower = 18.6f;
     private float groundCheckDistance = 0.1f;
     private float wallCheckDistance = 0.5f;
     private bool isGrounded;
