@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void LooseLife()
     {
-        LifeManager.instance.UpdateLives();
+        GameManger.instance.UpdateLives();
 
         audio.PlayOneShot(playerDeathSFX, 0.6f);
         anim.Play("Death");

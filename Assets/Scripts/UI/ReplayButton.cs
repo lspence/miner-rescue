@@ -9,7 +9,7 @@ public class ReplayButton : MonoBehaviour
     public void ReplayGame()
     {
         Time.timeScale = 1f;
-        LifeManager.isReplay = true;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("MainMenu");
+        GameManger.instance.ResetGame();
     }
 }

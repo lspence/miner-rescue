@@ -10,7 +10,7 @@ public class GameManger : MonoBehaviour
 
     [SerializeField] private AudioClip playerDeathSFX;
 
-    private int score;
+    private int score = 0;
     private int lives = 3;
     private float timerTime;
     private float levelLoadDelay = 3f;
@@ -32,11 +32,9 @@ public class GameManger : MonoBehaviour
     }
     private void Start()
     {
-        lifeText.text = lives.ToString();
-        int level = SceneManager.GetActiveScene().buildIndex + 1;
+        int level = SceneManager.GetActiveScene().buildIndex;
         levelText.text = level.ToString();
         timerTime = 100f;
-        scoreText.text = score.ToString();
     }
     
     private void Update()
@@ -46,19 +44,17 @@ public class GameManger : MonoBehaviour
 
     private void MakeInstance()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
     }
 
-   
     public void LoadNextLevel(int level)
     {
         StartCoroutine(LoadLevel(level));
@@ -74,19 +70,51 @@ public class GameManger : MonoBehaviour
             StartCoroutine(LoadDelay());
         }
     }
-    
+
+    public string GetScore()
+    {
+        return score.ToString();
+    }
+
+    public void IncreaseScore(int scoreAmount)
+    {
+        score += scoreAmount;
+        scoreText.text = score.ToString();
+    }
+
+    public void UpdateLives()
+    {
+        lives--;
+
+        lifeText.text = lives.ToString();
+
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    public string GetLives()
+    {
+        return lives.ToString();
+    }
+
+    public void LoadGameOver()
+    {
+
+        StartCoroutine(LoadDelay());
+    }
+
+    public void ResetGame()
+    {
+        Destroy(gameObject);
+    }
 
     IEnumerator LoadLevel(int nextLevel)
     {
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         timerTime = 100f;
         SceneManager.LoadScene(nextLevel);
-    }
-
-    public void LoadGameOver()
-    {
-        
-        StartCoroutine(LoadDelay());
     }
 
     IEnumerator LoadDelay()

@@ -25,24 +25,31 @@ public class ScoreManager : MonoBehaviour
 
     private void MakeInstance()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
         {
             instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        if (!LifeManager.isReplay)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        //DontDestroyOnLoad(gameObject);
     }
 
-    public void IncreaseScore(int scoreAmount)
+    private void OnDestroy()
     {
-        score += scoreAmount;
-        scoreText.text = score.ToString();
+        if (instance == this)
+        {
+            instance = null;
+        }
     }
+
+
+    //public void IncreaseScore(int scoreAmount)
+    //{
+    //    score += scoreAmount;
+    //    scoreText.text = score.ToString();
+    //}
 }

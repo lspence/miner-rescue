@@ -8,8 +8,7 @@ public class LifeManager : MonoBehaviour
     public static LifeManager instance = null;
 
     private int lives = 3;
-
-    public static bool isReplay = false;
+    //private bool isAlive;
 
     private Text livesText;
     private void Awake()
@@ -23,34 +22,65 @@ public class LifeManager : MonoBehaviour
         livesText.text = lives.ToString();
     }
 
+    //private void Update()
+    //{
+    //    if (!isAlive)
+    //    {
+    //        GameManger.instance.LoadGameOver();
+    //    }
+    //}
+
     private void MakeInstance()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
         {
             instance = this;
-            isReplay = false;
+            //DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+        //DontDestroyOnLoad(gameObject);
 
-        if (!isReplay)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        //if (instance == null)
+        //{
+        //    instance = this;
+
+        //}
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
+
+        //DontDestroyOnLoad(gameObject);
+        //if (!GameManger.isReplay)
+        //{
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    lives = 3;
+        //}
     }
 
+    
     public void UpdateLives()
     {
         lives--;
 
-        if (lives == 0)
-        {
-            GameManger.instance.LoadGameOver();
-        }
+        //if (lives == 0)
+        //{
+        //    isAlive = false;
+        //    //GameManger.instance.LoadGameOver();
+        //}
 
         livesText.text = lives.ToString();
     }
 
+    public string GetLives()
+    {
+        return lives.ToString();
+    }
 }

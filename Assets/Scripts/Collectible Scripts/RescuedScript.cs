@@ -16,7 +16,7 @@ public class RescuedScript : MonoBehaviour
         if (target.tag == Tags.PLAYER)
         {
             anim.Play("Rescued");
-            GameManger.instance.LoadNextLevel(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManger.instance.LoadNextLevel(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
