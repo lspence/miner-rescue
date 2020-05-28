@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.tag == Tags.BAT || target.tag == Tags.RAT || target.tag == Tags.SNAKE || target.tag == Tags.VENOM || target.tag == Tags.SPIDER)
+        if (target.tag == Tags.BAT || target.tag == Tags.RAT || target.tag == Tags.SNAKE || target.tag == Tags.VENOM || target.tag == Tags.SPIDER || target.tag == Tags.OBSTACLE)
         {
             LooseLife();
         }

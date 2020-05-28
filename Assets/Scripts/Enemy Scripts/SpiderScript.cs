@@ -40,6 +40,20 @@ public class SpiderScript : MonoBehaviour
     {
         transform.Translate(moveDirection * Time.smoothDeltaTime);
     }
+    
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == Tags.BULLET)
+        {
+            score = spiderPoints;
+            GameManger.instance.IncreaseScore(score);
+            audio.PlayOneShot(enemyKilledSFX, 0.6f);
+            myBody.bodyType = RigidbodyType2D.Dynamic;
+            StartCoroutine(SpiderDeath());
+            StopCoroutine(movementCoroutine);
+        }
+    }
 
     IEnumerator ChangeMovementDirection()
     {
@@ -61,18 +75,5 @@ public class SpiderScript : MonoBehaviour
     {
         yield return new WaitForSeconds(spiderDeathDelay);
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D target)
-    {
-        if (target.tag == Tags.BULLET)
-        {
-            score = spiderPoints;
-            GameManger.instance.IncreaseScore(score);
-            audio.PlayOneShot(enemyKilledSFX, 0.6f);
-            myBody.bodyType = RigidbodyType2D.Dynamic;
-            StartCoroutine(SpiderDeath());
-            StopCoroutine(movementCoroutine);
-        }
     }
 }

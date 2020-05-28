@@ -123,24 +123,27 @@ public class PlayerMovement : MonoBehaviour
             flying = true;
             myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
             anim.SetBool("Flying", true);
-
-            //if (!audio.isPlaying)
-            //{
-            //    audio.clip = hoverSFX;
-            //    audio.Play();
-            //}
-            //else
-            //{
-            //    audio.Stop();
-            //}
         }
 
-        if (Input.GetKey(KeyCode.H) && Input.GetKeyDown(KeyCode.F)) // Hovering
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            audio.clip = hoverSFX;
+            audio.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            audio.Stop();
+        }
+
+        if (Input.GetKey(KeyCode.H) && Input.GetKeyDown(KeyCode.F)) 
         {
             flying = true;
             myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
             anim.SetBool("Flying", true);
             audio.PlayOneShot(shootSFX, 0.6f);
         }
+
+        
     }
 }

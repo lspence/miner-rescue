@@ -11,6 +11,7 @@ TagManager:
   - Spider
   - Venom
   - Collectible
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Enemy
   - EnemyBounds
   - Bullet
-  - 
+  - Obstacles
   - 
   - 
   - 
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1261585877
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3088533019
     locked: 0
   - name: Environment
     uniqueID: 2656381445

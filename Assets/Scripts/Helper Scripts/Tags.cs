@@ -12,4 +12,6 @@ public class Tags : MonoBehaviour
     public static string SNAKE = "Snake";
     public static string SPIDER = "Spider";
     public static string VENOM = "Venom";
+
+    public static string OBSTACLE = "Obstacle";
 }
