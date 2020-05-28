@@ -5,9 +5,9 @@ using UnityEngine;
 public class Stalactite : MonoBehaviour
 {
     [SerializeField] private Transform bottomCollision;
-    private float targetRadius = 1.5f;
+    private float targetRadius = 2f;
     private float delayTime = 0.5f;
-    private float removeObstacleDelay = 1.1f;
+    private float removeObstacleDelay = 1.3f;
 
     public LayerMask playerLayer;
 
