@@ -11,17 +11,6 @@ public class MusicController : MonoBehaviour
         MakeInstance();
     }
 
-    private void Start()
-    {
-        
-    }
-
-    
-    private void Update()
-    {
-        
-    }
-
     private void MakeInstance()
     {
         if (instance != null && instance != this)
