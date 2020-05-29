@@ -36657,17 +36657,17 @@ PrefabInstance:
     - target: {fileID: 1790267235357487125, guid: 397c7ab3501aefe45b3df2fa2e587dd9,
         type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1790267235357487338, guid: 397c7ab3501aefe45b3df2fa2e587dd9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.1577272
+      value: 5.935505
       objectReference: {fileID: 0}
     - target: {fileID: 1790267235357487338, guid: 397c7ab3501aefe45b3df2fa2e587dd9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0016365051
+      value: -0.99836373
       objectReference: {fileID: 0}
     - target: {fileID: 1790267235516173118, guid: 397c7ab3501aefe45b3df2fa2e587dd9,
         type: 3}
