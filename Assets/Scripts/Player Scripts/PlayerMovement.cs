@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private int direction = 1;
     private float speed = 5f;
     private float jumpPower = 3.5f;
-    private float flyingPower = 18.6f;
+    private float flyingPower = 8.5f;
     private float groundCheckDistance = 0.1f;
     private float wallCheckDistance = 0.5f;
     private bool isGrounded;
@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         CheckOnGround();
         CheckTouchingWall();
         Jump();
-        Flying();
     }
 
     private void Run()
@@ -106,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded && !isTouchingWall)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 jumped = true;
                 myBody.velocity = new Vector2(myBody.velocity.x, jumpPower);
@@ -114,36 +113,14 @@ public class PlayerMovement : MonoBehaviour
                 audio.PlayOneShot(jumpSFX, 0.6f);
             }
         }
-    }
-
-    private void Flying()
-    {
-        if (Input.GetKey(KeyCode.H)) // Hovering
+        else
         {
-            flying = true;
-            myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
-            anim.SetBool("Flying", true);
+            if (Input.GetKey(KeyCode.W))
+            {
+                flying = true;
+                myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower), ForceMode2D.Force);
+                anim.SetBool("Flying", true);
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            audio.clip = hoverSFX;
-            audio.Play();
-        }
-
-        if (Input.GetKeyUp(KeyCode.H))
-        {
-            audio.Stop();
-        }
-
-        if (Input.GetKey(KeyCode.H) && Input.GetKeyDown(KeyCode.F)) 
-        {
-            flying = true;
-            myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower));
-            anim.SetBool("Flying", true);
-            audio.PlayOneShot(shootSFX, 0.6f);
-        }
-
-        
     }
 }

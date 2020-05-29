@@ -13,7 +13,7 @@ public class GameManger : MonoBehaviour
     private int score = 0;
     private int lives = 3;
     private float timerTime;
-    private float levelLoadDelay = 3f;
+    private float levelLoadDelay = 1.5f;
     private float gameoverLoadDelay = 0.1f;
 
     private Text lifeText;
@@ -40,6 +40,7 @@ public class GameManger : MonoBehaviour
     private void Update()
     {
         RemainingTime();
+        CheckIfQuitGame();
     }
 
     private void MakeInstance()
@@ -55,11 +56,6 @@ public class GameManger : MonoBehaviour
         }
     }
 
-    public void LoadNextLevel(int level)
-    {
-        StartCoroutine(LoadLevel(level));
-    }
-
     private void RemainingTime()
     {
         timerTime -= Time.deltaTime;
@@ -69,6 +65,20 @@ public class GameManger : MonoBehaviour
         {
             StartCoroutine(LoadDelay());
         }
+    }
+
+    private void CheckIfQuitGame()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+            ResetGame();
+        }
+    }
+
+    public void LoadNextLevel(int level)
+    {
+        StartCoroutine(LoadLevel(level));
     }
 
     public void DisplayCurrentLevel()

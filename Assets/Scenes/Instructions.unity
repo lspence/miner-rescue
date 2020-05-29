@@ -570,13 +570,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'A, D or Left, Right Arrows - Move Left or Move right
+  m_Text: 'A, D or Left Arrow, Right Arrow - Move Left or Move right
 
-    H - Fly
+    W - Jump/Hover
 
-    Space - Jump
-
-    F - Shoot'
+    Space - Shoot'
 --- !u!222 &944449331
 CanvasRenderer:
   m_ObjectHideFlags: 0
