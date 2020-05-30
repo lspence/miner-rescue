@@ -37127,6 +37127,51 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7319704328087355731, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.049927
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328501070881, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328501070881, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328501070881, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328501070881, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328603074617, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24.999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328654426193, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 83.19998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704328654426193, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.05005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704329034748942, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.05005
+      objectReference: {fileID: 0}
     - target: {fileID: 7319704329246816080, guid: 44b8bb99f863a3940967c43c0eee2f96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37186,6 +37231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319704329613601360, guid: 44b8bb99f863a3940967c43c0eee2f96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.049927
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b8bb99f863a3940967c43c0eee2f96, type: 3}
