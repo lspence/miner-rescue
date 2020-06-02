@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     private int direction = 1;
     private float playDeathDelay = 0.8f;
+    private bool isDead;
 
     private Vector3 startingPosition;
     private Animator anim;
@@ -29,13 +30,21 @@ public class PlayerHealth : MonoBehaviour
     {
         if (target.tag == Tags.BAT || target.tag == Tags.RAT || target.tag == Tags.SNAKE || target.tag == Tags.VENOM || target.tag == Tags.SPIDER || target.tag == Tags.OBSTACLE)
         {
-            LooseLife();
+            if (isDead)
+            {
+                return;
+            }
+            else
+            {
+                LooseLife();
+            }
         }
     }
 
     private void LooseLife()
     {
         GameManger.instance.UpdateLives();
+        isDead = true;
 
         audio.PlayOneShot(playerDeathSFX, 0.6f);
         anim.Play("Death");
@@ -52,5 +61,6 @@ public class PlayerHealth : MonoBehaviour
         Vector3 tempScale = transform.localScale;
         tempScale.x = direction;
         transform.localScale = tempScale;
+        isDead = false;
     }
 }

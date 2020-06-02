@@ -15,7 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private int direction = 1;
     private float speed = 5f;
     private float jumpPower = 3.5f;
-    private float flyingPower = 8.5f;
+    private float flyingPower = 125f;
+    private float hoverPower = 0.3f;
+    private float downVelocity = -3.75f;
     private float groundCheckDistance = 0.1f;
     private float wallCheckDistance = 0.5f;
     private bool isGrounded;
@@ -26,14 +28,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D myBody;
     private Animator anim;
-    private AudioSource audio;
 
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
     }
+
+    private void Start()
+    {
+        myBody.gravityScale = 25f;
+    }
+
 
     private void FixedUpdate()
     {
@@ -43,9 +49,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        ResetGravity();
         CheckOnGround();
         CheckTouchingWall();
         Jump();
+    }
+
+    private void ResetGravity()
+    {
+        myBody.gravityScale = 1f;
     }
 
     private void Run()
@@ -94,6 +106,31 @@ public class PlayerMovement : MonoBehaviour
             flying = false;
             anim.SetBool("Flying", false);
         }
+
+        if (!isGrounded)
+        {
+            flying = true;
+            myBody.velocity = new Vector2(myBody.velocity.x, hoverPower);
+            anim.SetBool("Flying", true);
+        }
+        else
+        {
+            GameManger.instance.GetComponent<AudioSource>().Play();
+        }
+
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            flying = true;
+            myBody.velocity = new Vector2(myBody.velocity.x, downVelocity);
+            anim.SetBool("Flying", true);
+
+            if (isGrounded)
+            {
+                flying = false;
+                anim.SetBool("Flying", false);
+            }
+        }
     }
 
     private void CheckTouchingWall()
@@ -105,17 +142,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded && !isTouchingWall)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 jumped = true;
                 myBody.velocity = new Vector2(myBody.velocity.x, jumpPower);
                 anim.SetBool("Jump", true);
-                audio.PlayOneShot(jumpSFX, 0.6f);
+                GameManger.instance.GetComponent<AudioSource>().Play();
             }
         }
         else
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 flying = true;
                 myBody.AddForce(new Vector2(myBody.velocity.x, flyingPower), ForceMode2D.Force);

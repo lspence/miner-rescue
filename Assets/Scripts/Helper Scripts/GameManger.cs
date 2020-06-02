@@ -34,7 +34,7 @@ public class GameManger : MonoBehaviour
     {
         int level = SceneManager.GetActiveScene().buildIndex;
         levelText.text = level.ToString();
-        timerTime = 120f;
+        timerTime = 100f;
     }
     
     private void Update()
@@ -129,14 +129,14 @@ public class GameManger : MonoBehaviour
     IEnumerator LoadLevel(int nextLevel)
     {
         yield return new WaitForSecondsRealtime(levelLoadDelay);
-        timerTime = 120f;
+        timerTime = 100f;
         SceneManager.LoadScene(nextLevel);
         DisplayCurrentLevel();
     }
 
     IEnumerator LoadDelay()
     {
-        timerTime = 120f;
+        timerTime = 100f;
         yield return new WaitForSecondsRealtime(gameoverLoadDelay);
         Time.timeScale = 0f;
         SceneManager.LoadScene("GameOver");

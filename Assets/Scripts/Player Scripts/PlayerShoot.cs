@@ -30,7 +30,7 @@ public class PlayerShoot : MonoBehaviour
             GameObject bullet = Instantiate(fireBullet, new Vector3(transform.position.x, transform.position.y - bulletYOffset, transform.position.z), Quaternion.identity);
             bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
             anim.SetBool("Shooting", true);
-            audio.PlayOneShot(shootSFX, 0.6f);
+            audio.PlayOneShot(shootSFX, 0.8f);
         }
         
         anim.SetBool("Shooting", false);
