@@ -214,11 +214,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -507.4, y: 223}
+  m_AnchoredPosition: {x: -507.4, y: 236}
   m_SizeDelta: {x: 700.9, y: 36.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764460527
@@ -241,7 +241,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9728e748944119b4d8ac2ff5f6dc0608, type: 3}
-    m_FontSize: 28
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -291,11 +291,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -634.4, y: -145.20001}
+  m_AnchoredPosition: {x: -634.4, y: -174}
   m_SizeDelta: {x: 447, y: 54.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &793671012
@@ -338,6 +338,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793671010}
   m_CullTransparentMesh: 0
+--- !u!1 &1375494937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1375494938}
+  - component: {fileID: 1375494940}
+  - component: {fileID: 1375494939}
+  m_Layer: 5
+  m_Name: Version Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1375494938
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375494937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1708669816}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 21, y: 358}
+  m_SizeDelta: {x: 288.2, y: 54.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1375494939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375494937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.972549, g: 0.95686275, b: 0.11372549, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9728e748944119b4d8ac2ff5f6dc0608, type: 3}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Version: 1.0.3'
+--- !u!222 &1375494940
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375494937}
+  m_CullTransparentMesh: 0
 --- !u!1 &1429317109
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,12 +445,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.7, y: 6.799988}
-  m_SizeDelta: {x: 1100.4, y: 183.9}
+  m_AnchoredPosition: {x: -307.7, y: 9}
+  m_SizeDelta: {x: 1100.4, y: 272.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1429317111
 MonoBehaviour:
@@ -395,7 +472,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9728e748944119b4d8ac2ff5f6dc0608, type: 3}
-    m_FontSize: 28
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -408,7 +485,13 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Lance Spence
 
+
+    MarwaMJ
+
     https://www.gamedevmarket.net/asset/space-man-2d-character/
+
+
+    bagzie, Reemax and AntumDeluge for the rework
 
     https://opengameart.org/content/bat-rework
 
@@ -593,6 +676,7 @@ RectTransform:
   - {fileID: 480137111}
   - {fileID: 1701228006}
   - {fileID: 1851845380}
+  - {fileID: 1375494938}
   - {fileID: 764460526}
   - {fileID: 1957700960}
   - {fileID: 1429317110}
@@ -945,11 +1029,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.7, y: -366.5}
+  m_AnchoredPosition: {x: -307.7, y: -378}
   m_SizeDelta: {x: 1100.4, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854553535
@@ -1024,12 +1108,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307.7, y: -203.90001}
-  m_SizeDelta: {x: 1100.4, y: 36.9}
+  m_AnchoredPosition: {x: -307.7, y: -234}
+  m_SizeDelta: {x: 1100.4, y: 68.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912017296
 MonoBehaviour:
@@ -1051,7 +1135,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9728e748944119b4d8ac2ff5f6dc0608, type: 3}
-    m_FontSize: 28
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1062,7 +1146,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: https://www.dafont.com/game-played.font
+  m_Text: 'Chequered
+
+    https://www.dafont.com/game-played.font'
 --- !u!222 &1912017297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1178,11 +1264,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -634.4, y: 139}
+  m_AnchoredPosition: {x: -634.4, y: 167}
   m_SizeDelta: {x: 447, y: 54.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957700961
@@ -1255,11 +1341,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -634.4, y: -292.2}
+  m_AnchoredPosition: {x: -634.4, y: -316}
   m_SizeDelta: {x: 447, y: 54.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2015757928
@@ -1334,7 +1420,7 @@ RectTransform:
   m_Children:
   - {fileID: 1935317187}
   m_Father: {fileID: 1708669816}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
