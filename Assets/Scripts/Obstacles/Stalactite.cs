@@ -20,11 +20,6 @@ public class Stalactite : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        
-    }
-
     
     private void Update()
     {
