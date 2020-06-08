@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             flying = true;
             myBody.velocity = new Vector2(myBody.velocity.x, downVelocity);

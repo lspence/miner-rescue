@@ -14,4 +14,5 @@ public class Tags : MonoBehaviour
     public static string VENOM = "Venom";
 
     public static string OBSTACLE = "Obstacle";
+    public static string HAZARD = "Hazard";
 }
