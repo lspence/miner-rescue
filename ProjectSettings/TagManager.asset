@@ -13,6 +13,7 @@ TagManager:
   - Collectible
   - Obstacle
   - Hazard
+  - Scorpion
   layers:
   - Default
   - TransparentFX
@@ -53,14 +54,14 @@ TagManager:
   - name: Background
     uniqueID: 4247207355
     locked: 0
-  - name: Environment
-    uniqueID: 2656381445
-    locked: 0
   - name: Hazards
     uniqueID: 2246964599
     locked: 0
   - name: Foreground
     uniqueID: 1261585877
+    locked: 0
+  - name: Environment
+    uniqueID: 2656381445
     locked: 0
   - name: Obstacles
     uniqueID: 3088533019

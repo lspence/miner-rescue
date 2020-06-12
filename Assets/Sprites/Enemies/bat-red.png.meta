@@ -1,43 +1,97 @@
 fileFormatVersion: 2
-guid: f00e6cc9356b53349b25d6683e3b8d0c
+guid: 5251b9b140be0704da8dd75e3711858e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
-    second: king_cobra-blue_0
+      213: -8031388449202626432
+    second: bat-red_0
   - first:
-      213: 21300002
-    second: king_cobra-blue_1
+      213: 3364762228778283524
+    second: bat-red_1
   - first:
-      213: 21300004
-    second: king_cobra-blue_2
+      213: -742574237880546908
+    second: bat-red_2
   - first:
-      213: 21300006
-    second: king_cobra-blue_3
+      213: 4667075946004060025
+    second: bat-red_3
   - first:
-      213: 21300008
-    second: king_cobra-blue_4
+      213: -5604643053229994005
+    second: bat-red_4
   - first:
-      213: 21300010
-    second: king_cobra-blue_5
+      213: -1902900538497386067
+    second: bat-red_5
   - first:
-      213: 21300012
-    second: king_cobra-blue_6
+      213: -9056376400133589930
+    second: bat-red_6
   - first:
-      213: 21300014
-    second: king_cobra-blue_7
+      213: 6579668314074518489
+    second: bat-red_7
   - first:
-      213: 21300016
-    second: king_cobra-blue_8
+      213: 2287910812644064849
+    second: bat-red_8
   - first:
-      213: 21300018
-    second: king_cobra-blue_9
+      213: 3076988435972379290
+    second: bat-red_9
   - first:
-      213: 21300020
-    second: king_cobra-blue_10
+      213: 359051649947672882
+    second: bat-red_10
   - first:
-      213: 21300022
-    second: king_cobra-blue_11
+      213: 8301664682768754743
+    second: bat-red_11
+  - first:
+      213: 7952515840238623754
+    second: bat-red_12
+  - first:
+      213: 8731028183078349953
+    second: bat-red_13
+  - first:
+      213: 56229300016622995
+    second: bat-red_14
+  - first:
+      213: -4376743748048545086
+    second: bat-red_15
+  - first:
+      213: -5036553099142761393
+    second: bat-red_16
+  - first:
+      213: 7565538587006980879
+    second: bat-red_17
+  - first:
+      213: -3755280832388594942
+    second: bat-red_18
+  - first:
+      213: 7920668153222938646
+    second: bat-red_19
+  - first:
+      213: -1727164020074908906
+    second: bat-red_20
+  - first:
+      213: -6850709718393952959
+    second: bat-red_21
+  - first:
+      213: 6452166828211668690
+    second: bat-red_22
+  - first:
+      213: 924785803972604570
+    second: bat-red_23
+  - first:
+      213: -7038786093586029967
+    second: bat-red_24
+  - first:
+      213: 7788281682440469601
+    second: bat-red_25
+  - first:
+      213: -1102093270649791603
+    second: bat-red_26
+  - first:
+      213: 4681959041811868370
+    second: bat-red_27
+  - first:
+      213: -4941300770932343054
+    second: bat-red_28
+  - first:
+      213: 6714681804864212269
+    second: bat-red_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -81,7 +135,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 90
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,7 +147,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,7 +160,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -118,7 +172,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
@@ -130,7 +184,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
@@ -142,19 +196,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -166,18 +208,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: king_cobra-blue_0
+      name: bat-red_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 192
-        width: 50
-        height: 63
+        x: 0
+        y: 197
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b7a36064d248d4449133a2b5a6de72e
-      internalID: 21300000
+      spriteID: 0802a10f1c6ca8090800000000000000
+      internalID: -8031388449202626432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_1
+      name: bat-red_1
       rect:
         serializedVersion: 2
-        x: 73
-        y: 192
-        width: 46
-        height: 64
+        x: 48
+        y: 197
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +248,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb6a97aa506693d42b87a265ab43e9cc
-      internalID: 21300002
+      spriteID: 4023bf77b6902be20800000000000000
+      internalID: 3364762228778283524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_2
+      name: bat-red_2
       rect:
         serializedVersion: 2
-        x: 145
-        y: 195
-        width: 36
-        height: 60
+        x: 96
+        y: 197
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +269,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7dcf3a01c0efc8418fd5ae1b4ff32e7
-      internalID: 21300004
+      spriteID: 4a906cb3aa8d1b5f0800000000000000
+      internalID: -742574237880546908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_3
+      name: bat-red_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 129
-        width: 56
-        height: 60
+        x: 0
+        y: 149
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ec256586a2c6ed4381eaca31c5df17a
-      internalID: 21300006
+      spriteID: 977975d78d8c4c040800000000000000
+      internalID: 4667075946004060025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_4
+      name: bat-red_4
       rect:
         serializedVersion: 2
-        x: 67
-        y: 129
-        width: 58
-        height: 61
+        x: 48
+        y: 149
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,20 +311,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97c161e6dcac01d43a1c4a01b6fe3670
-      internalID: 21300008
+      spriteID: bef8d5776de4832b0800000000000000
+      internalID: -5604643053229994005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_5
+      name: bat-red_5
       rect:
         serializedVersion: 2
-        x: 129
-        y: 129
-        width: 63
-        height: 63
+        x: 96
+        y: 149
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 785f4dbeb725de24ca35e86d02354ee1
-      internalID: 21300010
+      spriteID: da9b6ffca0a8795e0800000000000000
+      internalID: -1902900538497386067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_6
+      name: bat-red_6
       rect:
         serializedVersion: 2
-        x: 9
-        y: 65
-        width: 52
-        height: 61
+        x: 0
+        y: 101
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,20 +353,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e8ae6e9bfc7a0945b794caf6820291d
-      internalID: 21300012
+      spriteID: 6547ec595a9415280800000000000000
+      internalID: -9056376400133589930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_7
+      name: bat-red_7
       rect:
         serializedVersion: 2
-        x: 72
-        y: 65
-        width: 49
-        height: 62
+        x: 48
+        y: 101
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +374,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e8abc36099982a489db0b8c877e9fd1
-      internalID: 21300014
+      spriteID: 9d31e48987daf4b50800000000000000
+      internalID: 6579668314074518489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_8
+      name: bat-red_8
       rect:
         serializedVersion: 2
-        x: 135
-        y: 65
-        width: 43
-        height: 61
+        x: 96
+        y: 101
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,20 +395,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70a28ca47ed3d5b48bc5505ee2b4f952
-      internalID: 21300016
+      spriteID: 15ebc6123ca40cf10800000000000000
+      internalID: 2287910812644064849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_9
+      name: bat-red_9
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 56
-        height: 60
+        x: 0
+        y: 53
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,20 +416,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8dafbc193352e244848dc53f2fc26af
-      internalID: 21300018
+      spriteID: a925e101ea8a3ba20800000000000000
+      internalID: 3076988435972379290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_10
+      name: bat-red_10
       rect:
         serializedVersion: 2
-        x: 67
-        y: 1
-        width: 58
-        height: 61
+        x: 48
+        y: 53
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,20 +437,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d95a90caf34768b4580d8fe37bb3a0a4
-      internalID: 21300020
+      spriteID: 2312623c29b9bf400800000000000000
+      internalID: 359051649947672882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: king_cobra-blue_11
+      name: bat-red_11
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1
-        width: 63
-        height: 63
+        x: 96
+        y: 53
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,8 +458,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7b947fdbc036cf489d6ba111435ee81
-      internalID: 21300022
+      spriteID: 73866dc7b00753370800000000000000
+      internalID: 8301664682768754743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat-red_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c1710c5030d5e60800000000000000
+      internalID: 7952515840238623754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat-red_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 5
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c2f40afd7da2970800000000000000
+      internalID: 8731028183078349953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat-red_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 5
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39da57d1044c7c000800000000000000
+      internalID: 56229300016622995
       vertices: []
       indices: 
       edges: []
@@ -425,7 +530,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 39d70e6329ed6c9428b6cbef95e0456f
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
