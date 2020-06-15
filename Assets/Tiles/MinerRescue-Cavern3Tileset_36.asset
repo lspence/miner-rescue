@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: MinerRescue-Cavern3Tileset_17
+  m_Name: MinerRescue-Cavern3Tileset_36
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -6855535693572071250, guid: 602108f6fee77344fb875160789470e7,
+  m_Sprite: {fileID: -6526674329792118489, guid: 602108f6fee77344fb875160789470e7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:

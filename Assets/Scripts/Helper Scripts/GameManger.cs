@@ -98,6 +98,11 @@ public class GameManger : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void IncreaseTime()
+    {
+        timerTime += 15f;
+    }
+
     public void UpdateLives()
     {
         lives--;
